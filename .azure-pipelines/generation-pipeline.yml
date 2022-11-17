@@ -105,6 +105,7 @@ resources:
      type: github
      endpoint: microsoftkiota
      name: microsoft/kiota
+     ref: php/feat/backing-store
 
 pool: 1es-ubuntu-latest
 
