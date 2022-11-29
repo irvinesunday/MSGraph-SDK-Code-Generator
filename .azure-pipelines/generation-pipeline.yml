@@ -95,6 +95,7 @@ resources:
      type: github
      endpoint: microsoftkiota
      name: microsoft/kiota
+     ref: feat/flat-go-structure
 
 pool:
   vmImage: 'ubuntu-latest'
