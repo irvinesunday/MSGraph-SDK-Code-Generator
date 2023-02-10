@@ -105,7 +105,7 @@ resources:
      type: github
      endpoint: microsoftkiota
      name: microsoft/kiota
-     ref: php/feat/backing-store
+     ref: philip/test-query-param-factory
 
 pool: 1es-ubuntu-latest
 
