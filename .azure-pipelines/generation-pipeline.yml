@@ -105,6 +105,7 @@ resources:
      type: github
      endpoint: microsoftkiota
      name: microsoft/kiota
+     ref: feat/php/request-config-constructors
 
 pool: 1es-ubuntu-latest
 
