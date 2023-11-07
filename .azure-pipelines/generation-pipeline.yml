@@ -101,11 +101,11 @@ resources:
    - repository: msgraph-metadata
      type: github
      endpoint: irvinesunday
-     name: microsoftgraph/msgraph-metadata
+     name: irvinesunday/msgraph-metadata
    - repository: microsoft-graph-docs
      type: github
      endpoint: irvinesunday
-     name: microsoftgraph/microsoft-graph-docs
+     name: irvinesunday/microsoft-graph-docs
   #  - repository: kiota
   #    type: github
   #    endpoint: microsoftkiota
