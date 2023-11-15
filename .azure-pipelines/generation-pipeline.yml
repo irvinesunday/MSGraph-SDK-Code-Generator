@@ -102,10 +102,10 @@ resources:
      type: github
      endpoint: irvinesunday
      name: irvinesunday/msgraph-metadata
-   - repository: microsoft-graph-docs
-     type: github
-     endpoint: irvinesunday
-     name: irvinesunday/microsoft-graph-docs
+  # - repository: microsoft-graph-docs
+  #   type: github
+  #   endpoint: irvinesunday
+  #   name: irvinesunday/microsoft-graph-docs
   #  - repository: kiota
   #    type: github
   #    endpoint: microsoftkiota
