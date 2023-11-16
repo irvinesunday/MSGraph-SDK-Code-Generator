@@ -102,10 +102,10 @@ resources:
     type: github
     endpoint: irvinesunday
     name: irvinesunday/msgraph-metadata
-  - repository: microsoft-graph-docs
-    type: github
-    endpoint: irvinesunday
-    name: irvinesunday/microsoft-graph-docs
+  # - repository: microsoft-graph-docs
+  #   type: github
+  #   endpoint: irvinesunday
+  #   name: irvinesunday/microsoft-graph-docs
   #  - repository: kiota
   #    type: github
   #    endpoint: microsoftkiota
@@ -161,7 +161,7 @@ variables:
   scriptsDirectory: '$(Build.SourcesDirectory)/MSGraph-SDK-Code-Generator/scripts'
   conversionSettingsDirectory: '$(Build.SourcesDirectory)/msgraph-metadata/conversion-settings'
   transformScript: '$(Build.SourcesDirectory)/msgraph-metadata/transforms/csdl/preprocess_csdl.xsl'
-  docsDirectory: '$(Build.SourcesDirectory)/microsoft-graph-docs'
+  # docsDirectory: '$(Build.SourcesDirectory)/microsoft-graph-docs'
 
   v1Branch: ${{ parameters.v1BranchPrefix }}/$(Build.BuildId)
   betaBranch: ${{ parameters.betaBranchPrefix }}/$(Build.BuildId)
