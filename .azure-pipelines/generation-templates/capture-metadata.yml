@@ -31,10 +31,10 @@ steps:
   fetchDepth: 1
   persistCredentials: true
 
-- checkout: microsoft-graph-docs
-  displayName: checkout graph docs
-  fetchDepth: 1
-  persistCredentials: true
+# - checkout: microsoft-graph-docs
+#   displayName: checkout graph docs
+#   fetchDepth: 1
+#   persistCredentials: true
 
 - template: checkout-metadata.yml
 - template: set-user-config.yml

@@ -156,7 +156,7 @@ variables:
   rawMetadataFileBeta: 'https://graph.microsoft.com/beta/$metadata'
   rawMetadataFileV1: 'https://graph.microsoft.com/v1.0/$metadata' # We want to run against the metadata we have captured.
   typewriterDirectory: '$(Build.SourcesDirectory)/typewriter'
-  kiotaDirectory: '$(Build.SourcesDirectory)/kiota'
+  # kiotaDirectory: '$(Build.SourcesDirectory)/kiota'
   typewriterExecutable: '$(typewriterDirectory)/Typewriter'
   scriptsDirectory: '$(Build.SourcesDirectory)/MSGraph-SDK-Code-Generator/scripts'
   conversionSettingsDirectory: '$(Build.SourcesDirectory)/msgraph-metadata/conversion-settings'
@@ -180,12 +180,12 @@ stages:
     steps:
     - template: generation-templates/build-and-publish-typewriter.yml
 
-- stage: stage_build_and_publish_kiota
-  dependsOn: [] # remove the implicit dependency to any previous stage
-  jobs:
-  - job: build_and_publish_kiota
-    steps:
-    - template: generation-templates/build-and-publish-kiota.yml
+# - stage: stage_build_and_publish_kiota
+#   dependsOn: [] # remove the implicit dependency to any previous stage
+#   jobs:
+#   - job: build_and_publish_kiota
+#     steps:
+#     - template: generation-templates/build-and-publish-kiota.yml
 
 # Downloads the latest public beta metadata. If there are changes, we checkin
 # the public metadata into microsoftgraph/msgraph-metadata, and then run the
@@ -226,25 +226,25 @@ stages:
         cleanMetadataFolder: $(cleanMetadataFolderBeta)
         cleanMetadataFileWithAnnotations: $(cleanMetadataFileWithAnnotationsBeta)
 
-- stage: stage_v1_openapi
-  dependsOn: stage_v1_metadata
-  condition: in(dependencies.stage_v1_metadata.result, 'Succeeded', 'Skipped')
-  jobs:
-  - template: generation-templates/capture-openapi.yml
-    parameters:
-      endpoint: 'v1.0'
-      outputPath: $(cleanOpenAPIFileV1OutputPath)
-      cleanMetadataFolder: $(cleanOpenAPIFolderV1)
+# - stage: stage_v1_openapi
+#   dependsOn: stage_v1_metadata
+#   condition: in(dependencies.stage_v1_metadata.result, 'Succeeded', 'Skipped')
+#   jobs:
+#   - template: generation-templates/capture-openapi.yml
+#     parameters:
+#       endpoint: 'v1.0'
+#       outputPath: $(cleanOpenAPIFileV1OutputPath)
+#       cleanMetadataFolder: $(cleanOpenAPIFolderV1)
 
-- stage: stage_beta_openapi
-  dependsOn: stage_beta_metadata
-  condition: in(dependencies.stage_beta_metadata.result, 'Succeeded', 'Skipped')
-  jobs:
-  - template: generation-templates/capture-openapi.yml
-    parameters:
-      endpoint: 'beta'
-      outputPath: $(cleanOpenAPIFileBetaOutputPath)
-      cleanMetadataFolder: $(cleanOpenAPIFolderBeta)
+# - stage: stage_beta_openapi
+#   dependsOn: stage_beta_metadata
+#   condition: in(dependencies.stage_beta_metadata.result, 'Succeeded', 'Skipped')
+#   jobs:
+#   - template: generation-templates/capture-openapi.yml
+#     parameters:
+#       endpoint: 'beta'
+#       outputPath: $(cleanOpenAPIFileBetaOutputPath)
+#       cleanMetadataFolder: $(cleanOpenAPIFolderBeta)
 
 # - stage: stage_csharp_v1_kiota
 #   dependsOn:
