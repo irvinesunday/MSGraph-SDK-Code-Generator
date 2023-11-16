@@ -98,14 +98,14 @@ resources:
   #    endpoint: microsoftgraph
   #    name: microsoftgraph/msgraph-cli
   #    ref: main
-   - repository: msgraph-metadata
-     type: github
-     endpoint: irvinesunday
-     name: irvinesunday/msgraph-metadata
-  # - repository: microsoft-graph-docs
-  #   type: github
-  #   endpoint: irvinesunday
-  #   name: irvinesunday/microsoft-graph-docs
+  - repository: msgraph-metadata
+    type: github
+    endpoint: irvinesunday
+    name: irvinesunday/msgraph-metadata
+  - repository: microsoft-graph-docs
+    type: github
+    endpoint: irvinesunday
+    name: irvinesunday/microsoft-graph-docs
   #  - repository: kiota
   #    type: github
   #    endpoint: microsoftkiota
@@ -172,20 +172,20 @@ variables:
   phpVersion: 7.2
 
 # This stage is the core dependency for all other stages.
-stages:
-- stage: stage_build_and_publish_typewriter
-  dependsOn: [] # remove the implicit dependency to any previous stage
-  jobs:
-  - job: build_and_publish_typewriter
-    steps:
-    - template: generation-templates/build-and-publish-typewriter.yml
+# stages:
+# - stage: stage_build_and_publish_typewriter
+#   dependsOn: [] # remove the implicit dependency to any previous stage
+#   jobs:
+#   - job: build_and_publish_typewriter
+#     steps:
+#     - template: generation-templates/build-and-publish-typewriter.yml
 
-- stage: stage_build_and_publish_kiota
-  dependsOn: [] # remove the implicit dependency to any previous stage
-  jobs:
-  - job: build_and_publish_kiota
-    steps:
-    - template: generation-templates/build-and-publish-kiota.yml
+# - stage: stage_build_and_publish_kiota
+#   dependsOn: [] # remove the implicit dependency to any previous stage
+#   jobs:
+#   - job: build_and_publish_kiota
+#     steps:
+#     - template: generation-templates/build-and-publish-kiota.yml
 
 # Downloads the latest public beta metadata. If there are changes, we checkin
 # the public metadata into microsoftgraph/msgraph-metadata, and then run the
